@@ -13,7 +13,7 @@ public class EnvioEmail {
 
 
         Email email = EmailBuilder.startingBlank()
-                .from("SU_EMAIL")
+                .from("SU_EMA")
                 .to(destinatario)
                 .withSubject(asunto)
                 .withPlainText(mensaje)

@@ -6,6 +6,4 @@ public class SuscripcionPremiumFactory extends SuscripcionFactory {
     public Suscripcion crearSuscripcion() {
         return new SuscripcionPremium();
     }
-
-
 }
