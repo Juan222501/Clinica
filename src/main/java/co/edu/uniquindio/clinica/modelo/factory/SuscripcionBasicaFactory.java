@@ -7,4 +7,6 @@ public class SuscripcionBasicaFactory extends SuscripcionFactory {
         return new SuscripcionBasica();
     }
 
+
+
 }

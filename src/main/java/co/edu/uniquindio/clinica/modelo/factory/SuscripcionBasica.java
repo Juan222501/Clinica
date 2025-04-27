@@ -28,9 +28,29 @@ public class SuscripcionBasica implements Suscripcion {
 
     @Override
     public double calcularTotal(Servicio servicio) {
-        // Aquí debería ir la lógica de cálculo del precio total
-        return 0;
-    }
+        double precioFinal = servicio.getPrecio();
+
+        if (tipoDescuento == TipoDescuento.COMPLETO) {
+            // Descuento completo: servicio gratuito
+            System.out.println("Descuento Completo: El servicio es gratuito.");
+            precioFinal = 0;
+        }
+        else if (tipoDescuento == TipoDescuento.INCOMPLETO) {
+            // Descuento incompleto: un porcentaje de descuento, por ejemplo, 50%
+            System.out.println("Descuento Incompleto: Aplicando descuento del 50%");
+            precioFinal = servicio.getPrecio() * 0.50;
+        }
+        else if (tipoDescuento == TipoDescuento.NO) {
+            // Sin descuento
+            System.out.println("Sin descuento: El precio es el original.");
+        }
+        else {
+            System.out.println("Tipo de descuento no reconocido.");
+        }
+
+        return precioFinal;    }
+
+
 
     public void agregarServicio(String nombre, double precio) throws Exception {
         validarServicio(nombre);  // Verifica que el servicio no exista
