@@ -6,6 +6,7 @@ import co.edu.uniquindio.clinica.modelo.factory.Suscripcion;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 public class Clinica {
     private List<Paciente> pacientes;
@@ -142,6 +143,25 @@ public class Clinica {
             }
         }
         return null;
+    }
+
+    public void enviarCorreoVerificacion(Paciente paciente) {
+        // Generar un código único de verificación
+        String codigoVerificacion = UUID.randomUUID().toString();
+
+        // Crear el asunto y mensaje
+        String asunto = "Verificación de cuenta - Clínica Salud";
+        String mensaje = "Hola " + paciente.getNombre() + ",\n\n" +
+                "Gracias por registrarte en nuestra clínica.\n\n" +
+                "Por favor verifica tu cuenta utilizando el siguiente código:\n\n" +
+                codigoVerificacion + "\n\n" +
+                "¡Esperamos verte pronto!\n\n" +
+                "Clínica Salud.";
+
+        // Enviar el correo
+        EnvioEmail.enviarNotificacion(paciente.getCorreo(), asunto, mensaje);
+
+        System.out.println("Correo de verificación enviado a " + paciente.getCorreo());
     }
 
 
