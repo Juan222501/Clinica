@@ -15,4 +15,9 @@ public class SuscripcionPremium implements Suscripcion {
     public List<Servicio> getServiciosDisponibles() {
         return List.of();
     }
+
+    @Override
+    public double calcularTotal(Servicio servicio) {
+        return 0;
+    }
 }

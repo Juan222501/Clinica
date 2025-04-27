@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Paciente {
-    private String cedula;
+    private String id;
     private String nombre;
     private String telefono;
     private String correo;

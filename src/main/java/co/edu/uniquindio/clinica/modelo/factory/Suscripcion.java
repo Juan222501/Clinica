@@ -10,4 +10,5 @@ public interface Suscripcion {
 
     public List<Servicio> getServiciosDisponibles();
     public void getFactura(Servicio servicio);
+    public double calcularTotal(Servicio servicio);
 }

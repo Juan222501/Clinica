@@ -16,4 +16,9 @@ public class SuscripcionBasica implements Suscripcion {
     public void getFactura(Servicio servicio) {
         serviciosDisponibles.add(servicio);
     }
+
+    @Override
+    public double calcularTotal(Servicio servicio) {
+        return 0;
+    }
 }
