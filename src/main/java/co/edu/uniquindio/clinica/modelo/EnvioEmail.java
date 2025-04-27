@@ -6,7 +6,6 @@ import org.simplejavamail.api.mailer.config.TransportStrategy;
 import org.simplejavamail.email.EmailBuilder;
 import org.simplejavamail.mailer.MailerBuilder;
 
-
 public class EnvioEmail {
 
 
@@ -34,3 +33,4 @@ public class EnvioEmail {
         }
     }
 }
+
