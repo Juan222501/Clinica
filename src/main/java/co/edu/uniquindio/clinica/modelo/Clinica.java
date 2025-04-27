@@ -99,6 +99,7 @@ public class Clinica {
                 .build();
 
         citas.add(cita);
+        enviarCorreoVerificacion(paciente,cita);
     }
 
     public void validarDatosCita(Paciente paciente, Servicio servicio, LocalDateTime fecha) throws Exception {
@@ -145,18 +146,20 @@ public class Clinica {
         return null;
     }
 
-    public void enviarCorreoVerificacion(Paciente paciente) {
+    public void enviarCorreoVerificacion(Paciente paciente, Cita cita) throws Exception {
         // Generar un código único de verificación
         String codigoVerificacion = UUID.randomUUID().toString();
 
-        // Crear el asunto y mensaje
-        String asunto = "Verificación de cuenta - Clínica Salud";
+        String asunto = "Confirmación de Cita Médica - Clínica Salud";
         String mensaje = "Hola " + paciente.getNombre() + ",\n\n" +
-                "Gracias por registrarte en nuestra clínica.\n\n" +
-                "Por favor verifica tu cuenta utilizando el siguiente código:\n\n" +
-                codigoVerificacion + "\n\n" +
-                "¡Esperamos verte pronto!\n\n" +
+                "Tu cita ha sido agendada exitosamente.\n\n" +
+                "Detalles de la cita:\n" +
+                "- Servicio: " + cita.getServicio().getNombre() + "\n" +
+                "- Fecha y Hora: " + cita.getFecha().toString() + "\n\n" +
+                "Por favor, llega 10 minutos antes de tu cita.\n\n" +
+                "¡Gracias por confiar en nosotros!\n\n" +
                 "Clínica Salud.";
+
 
         // Enviar el correo
         EnvioEmail.enviarNotificacion(paciente.getCorreo(), asunto, mensaje);
