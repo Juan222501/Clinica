@@ -14,6 +14,9 @@ public class SuscripcionBasica implements Suscripcion {
 
     @Override
     public void getFactura(Servicio servicio) {
+        System.out.println("Factura:");
+        System.out.println("Servicio: " + servicio.getNombre());
+        System.out.println("Precio: $" + servicio.getPrecio());
         serviciosDisponibles.add(servicio);
     }
 
@@ -21,4 +24,5 @@ public class SuscripcionBasica implements Suscripcion {
     public double calcularTotal(Servicio servicio) {
         return 0;
     }
+
 }
